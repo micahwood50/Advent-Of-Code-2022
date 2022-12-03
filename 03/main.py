@@ -41,8 +41,7 @@ def part_2():
     result = 0
     rucksack_list = get_input()
 
-    for i in range(0, len(rucksack_list), 3):
-        r1, r2, r3 = rucksack_list[i], rucksack_list[i + 1], rucksack_list[i + 2]
+    for r1, r2, r3 in zip(*[iter(rucksack_list)] * 3):
         common_ch = list(set(r1) & set(r2) & set(r3))[0]
         result += get_priority_score(common_ch)
 
